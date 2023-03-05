@@ -8,6 +8,14 @@ We also provide code (the "beam search") designed to perform inference on gaps o
 While beam search and stochastic gradient descent have been well-explored in the literature, corruption detection is a significantly more complicated task, and to our knowledge, the algorithm we implement is explained neither in existing literature nor in the body of the paper.
 For this reason, we do not include the code here, but can provide it upon request.
 
+Barbara Graziosi<sup>1</sup>, Johannes Haubold<sup>1</sup>, Charlie Cowen-Breen<sup>2</sup>, Creston Brooks<sup>3</sup>
+<i><br>
+<sup>1</sup> Department of Classics, Princeton University [barbara.graziosi@princeton.edu](mailto:barbara.graziosi@princeton.edu); [jhaubold@princeton.edu](mailto:jhaubold@princeton.edu) <br>
+<sup>2</sup> Department of Pure Mathematics and Mathematical Statistics, University of Cambridge [wcc4@princeton.edu](mailto:wcc4@princeton.edu) / [wc320@cam.ac.uk](mailto:wc320@cam.ac.uk)<br>
+<sup>3</sup> Department of Computer Science, Princeton University [cabrooks@princeton.edu](mailto:cabrooks@princeton.edu)
+</i>
+<br>
+
 ## System requirements
 
 It is recommended, but not required, that your system has a GPU in order to perform inference with Logion. On a system with Python >=3.8.8;
