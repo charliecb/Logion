@@ -3,6 +3,8 @@
 Logion is a system for detecting errors in ancient and medieval Greek works. 
 Here we document the training procedure for a premodern Greek BERT model, as well as how to utilize it for error detection. We provide BERT training code for those interested in replicating our training or using their own data; for those interested in using our premodern Greek BERT model out of the box, which was trained on over 70 million words of premodern Greek, we make this model available along with instructions to use it here: https://huggingface.co/cabrooks/LOGION-base. This model can also be fine-tuned on specific works of interest to better suit a given task. 
 
+For more information about our group, see https://www.logionproject.princeton.edu. 
+
 Barbara Graziosi<sup>1</sup>, Johannes Haubold<sup>1</sup>, Charlie Cowen-Breen<sup>2</sup>, Creston Brooks<sup>3</sup>
 <i><br>
 <sup>1</sup> Department of Classics, Princeton University [barbara.graziosi@princeton.edu](mailto:barbara.graziosi@princeton.edu); [jhaubold@princeton.edu](mailto:jhaubold@princeton.edu) <br>
@@ -28,10 +30,3 @@ Logion was trained on a research computing cluster with 2.8 GHz Intel Ice Lake n
 After initializing the environment specified above, or by using a standard Google Colab notebook with `!pip install transformers`, one must include the model files ("config.json", "pytorch_model.bin"; found in the Dropbox link below) in the directory "models/base." At this point, it is possible to execute `python beam_search.py` and observe the sample results included in the file.
 
 One can experiment by replacing the sample text included in line 185 of beam_search.py with arbitrary Greek text, replacing artificial or real lacunae with mask tokens, denoted "{tokenizer.mask_token}".
-
-## Model
-
-Stored on [Dropbox](https://www.dropbox.com/sh/x8lsd6la7meq4xk/AABb8tqHPTT1KHYvLvKLeaEta?dl=0) due to size limitations on GitHub. 
-In addition to the base model, trained according to the standard objective for masked-language modeling, we provide fine-tunings which specialize
-in predicting spans of more than one consecutive missing token. For each 1<k<=5, we train a "expert<i>k</i>span" model which is never trained on missing spans of fewer than k missing tokens.
-At inference time, we use the expert models to predict appropriate spans, defaulting to the expert5span model for gaps of more than 5 missing tokens (such gaps are statistically rare in the corpus).
