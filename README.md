@@ -1,12 +1,7 @@
 # README
 
-Logion is a system for infilling text and detecting corruptions in ancient and medieval Greek works. 
-Here we document the base model which one can use for inference (suggestion generation for infilling unknown gaps of text). 
-We provide the base model, along with several specialized models which we explain below, on Dropbox (as they are too large to store here).
-We also provide code (the "beam search") designed to perform inference on gaps of more than one token, along with the training code which one can use to fine-tune the models, provided they have the recommended hardware specifications. To perform inference on user-provided sample text, see <i>§ Setup Guide</i> below.
-
-While beam search and stochastic gradient descent have been well-explored in the literature, corruption detection is a significantly more complicated task, and to our knowledge, the algorithm we implement is explained neither in existing literature nor in the body of the paper.
-For this reason, we do not include the code here, but can provide it upon request.
+Logion is a system for detecting errors in ancient and medieval Greek works. 
+Here we document the training procedure for a premodern Greek BERT model, as well as how to utilize it for error detection. We provide BERT training code for those interested in replicating our training or using their own data; for those interested in using our premodern Greek BERT model out of the box, which was trained on over 70 million words of premodern Greek, we make this model available along with instructions to use it here: https://huggingface.co/cabrooks/LOGION-base. This model can also be fine-tuned on specific works of interest to better suit a given task. 
 
 Barbara Graziosi<sup>1</sup>, Johannes Haubold<sup>1</sup>, Charlie Cowen-Breen<sup>2</sup>, Creston Brooks<sup>3</sup>
 <i><br>
