@@ -25,8 +25,3 @@ to initialize the environment.
 
 ### System recommendations for training
 Logion was trained on a research computing cluster with 2.8 GHz Intel Ice Lake nodes for several days. If you intend to fine-tune, it's recommended that your processor has at least 128 GB of memory and a GPU. With a Nvidia K80 / T4 (standard on Google Colab), beam search should take no more than 10 seconds for spans of up to 10 tokens, with current specifications.
-
-### Setup guide
-After initializing the environment specified above, or by using a standard Google Colab notebook with `!pip install transformers`, one must include the model files ("config.json", "pytorch_model.bin"; found in the Dropbox link below) in the directory "models/base." At this point, it is possible to execute `python beam_search.py` and observe the sample results included in the file.
-
-One can experiment by replacing the sample text included in line 185 of beam_search.py with arbitrary Greek text, replacing artificial or real lacunae with mask tokens, denoted "{tokenizer.mask_token}".
