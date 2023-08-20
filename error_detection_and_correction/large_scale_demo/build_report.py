@@ -32,6 +32,7 @@ MEMORY CONSIDERATIONS (with default settings)
 # With completely default settings, this script should require 4GB RAM. If you increase the number of paragraphs considered, RAM requirements may increase.
 # 100 paragraphs per report should ever not require more than 64GB RAM. When possible, we highly recommend implementing numpy.memmap to reduce RAM required, or if you have access to a cluster, parallelization across e.g. 32GB RAM nodes.
 
+[1] Charlie Cowen-Breen, Creston Brooks, Johannes Haubold, Barbara Graziosi. 2023. Logion: Machine-Learning Based Detection and Correction of Textual Errors in Greek Philology. To appear in ACL 2023 Workshop (ALP).
 """
 
 from transformers import BertTokenizer, BertForMaskedLM
