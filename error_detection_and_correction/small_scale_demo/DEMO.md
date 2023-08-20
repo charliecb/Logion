@@ -11,3 +11,7 @@ In what follows, we will assume use of a SLURM cluster.
 
 ## Step 3: Data and model specification
 For the purposes of our demonstration, we use as data a sample from the works of Michael Psellos, provided in `sample.txt`. On principle, one can edit 
+
+
+# References
+[1] Charlie Cowen-Breen, Creston Brooks, Johannes Haubold, Barbara Graziosi. 2023. Logion: Machine-Learning Based Detection and Correction of Textual Errors in Greek Philology. *To appear in ACL 2023 Workshop (ALP).*
