@@ -32,3 +32,8 @@ To visualize the output, for each flag, the corresponding line of text is determ
 Amalgamated flags are visualized in HTML. **Styling is provided in `header.txt` and `footer.txt` and must remain in the same directory as `graphical_report_generation.py`.**
 
 Finally, `graphical_report_generation.py` will output `finalreport.htm`, which contains a stylized representation of the report. Standard web browsers can be used to convert `finalreport.htm` to a PDF for ease of use.
+
+
+
+# References
+[1] Charlie Cowen-Breen, Creston Brooks, Johannes Haubold, Barbara Graziosi. 2023. Logion: Machine-Learning Based Detection and Correction of Textual Errors in Greek Philology. *To appear in ACL 2023 Workshop (ALP).*
