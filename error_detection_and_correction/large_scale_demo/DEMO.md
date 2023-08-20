@@ -37,6 +37,7 @@ Parallelization is enabled by several command line arguments `build_report.py` a
 * `--start_at` is the line number within the data split of interest at which to start; recommendation: 100, 200, 300, ...
 * `--split_num` is the number of the dataset split which is used; recommendation: 1, 2, 3, 4, 5, as described in Step 3: Option 1.
 * `--lev` is the Levenshtein distance threshold between suggestions and transmissions; recommendation: 1 or 2
+
 Output files are stored in `./{lev}/{split_num}/{start_at}`.
 
 In the demonstration provided here, the corpus is divided into a 5-way data split, each fifth of which is further divided into 8 sections each of 100 lines or fewer, for a total of 40 mini-datasets. 40 SLURM batch script files are used queue 40 such instances of `build_report.py`, each searching for and providing suggested corrections for errors occuring in its niche of the corpus. Each instance of `build_report.py` will process at most 100 lines, so we expect jobs to take at most 32 hours with the hardware specified.
@@ -45,7 +46,7 @@ The files named `report{lev}.{split_num}.{start_at}.slurm` function as batch scr
 ```
 sbatch report{lev}.{split_num}.{start_at}.slurm
 ```
-for every `lev` = 1; `split_num` = 1, 2, 3, 4, 5; `start_at` = 0, 100, 200, 300, 400, 500, 600, 700.
+inside `./out` for every `lev` = 1; `split_num` = 1, 2, 3, 4, 5; `start_at` = 0, 100, 200, 300, 400, 500, 600, 700.
 
 Each instance of `build_report.py` will generate its own output sub-directory, each containing files which record the transmitted text, suggested text, and CCR of every word in the corpus.
 
