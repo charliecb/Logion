@@ -1,6 +1,6 @@
 # Large-scale Implementation of Error Detection and Correction
 
-Here we demonstrate a possible implementation of Logion on a large-scale GPU-enabled computing cluster. In what follows, we use 40 nodes of a SLURM cluster, with each node powered by a 2.8 GHz Intel Ice Lake CPU with a single 1.41 GHz A100 GPU.
+Here we demonstrate a possible implementation of Logion on a large-scale GPU-enabled computing cluster. For a high-level overview of the intended behavior of each script, see `README.md` in the above directory. In what follows, we use 40 nodes of a SLURM cluster, with each node powered by a 2.8 GHz Intel Ice Lake CPU with a single 1.41 GHz A100 GPU.
 
 ## Step 1: Configure environment
 On a system with Python >=3.8.8; Conda >=4.10.1, execute
@@ -49,3 +49,13 @@ for every `lev` = 1; `split_num` = 1, 2, 3, 4, 5; `start_at` = 0, 100, 200, 300,
 
 Each instance of `build_report.py` will generate its own output sub-directory, each containing files which record the transmitted text, suggested text, and CCR of every word in the corpus.
 
+## Step 5: Graphical report generation
+This final step is the most straightforward. Simply execute
+```
+python graphical_report_generation.py
+```
+to produce a visualization of the final report in HTML. Ensure that `header.txt` and `footer.txt` are in the same directory as `graphical_report_generation.py`. If one wishes to modify the number of flags produced, change `num_flags` in `graphical_report_generation.py`. If one wishes to generate a report consisting of only flags from a certain sub-directory&mdash;such as the one corresponding to data split 3, for example&mdash;one can change `base_directory` in `graphical_report_generation.py`&mdash;in this case, to `./3`; note that this also changes the output directory which contains `finalreport.htm` accordingly.
+
+Finally, standard web browsers can be used to convert the output HTML to PDF. To do this, open `finalreport.htm` in e.g. Safari, and select File -> Print -> PDF. For a good rule of thumb, with the 50k tokenizer provided on HuggingFace at `cabrooks/LOGION-50k_wordpiece`, 100 flags means roughly 60 PDF pages, and 500 flags means roughly 300 PDF pages.
+
+We emphasize that these reports are intended only to provide inspiration for domain experts, and must be interpreted by philologists before formal conclusions are drawn.
