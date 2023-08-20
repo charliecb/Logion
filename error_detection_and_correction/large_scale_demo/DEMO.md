@@ -60,3 +60,6 @@ to produce a visualization of the final report in HTML. Ensure that `header.txt`
 Finally, standard web browsers can be used to convert the output HTML to PDF. To do this, open `finalreport.htm` in e.g. Safari, and select File -> Print -> PDF. For a good rule of thumb, with the 50k tokenizer provided on HuggingFace at `cabrooks/LOGION-50k_wordpiece`, 100 flags means roughly 60 PDF pages, and 500 flags means roughly 300 PDF pages.
 
 We emphasize that these reports are intended only to provide inspiration for domain experts, and must be interpreted by philologists before formal conclusions are drawn.
+
+# References
+[1] Charlie Cowen-Breen, Creston Brooks, Johannes Haubold, Barbara Graziosi. 2023. Logion: Machine-Learning Based Detection and Correction of Textual Errors in Greek Philology. *To appear in ACL 2023 Workshop (ALP).*
