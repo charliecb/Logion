@@ -41,7 +41,7 @@ model = BertForMaskedLM.from_pretrained(preload_path).to(device)
 # In the current directory, we expect two files, train_example.txt and val_example.txt
 # Each of these files are should contain newline-separated training examples (chunks of text containing <= 512 tokens)
 
-with open('train_example.txt', 'r') as f:
+with open('./data/train_example.txt', 'r') as f:
   text = f.read().split('\n')
   text.pop(-1)
   f.close()
@@ -49,7 +49,7 @@ with open('train_example.txt', 'r') as f:
 train_inputs = tokenizer(text, return_tensors='pt', max_length=512, truncation=True, padding='max_length')
 train_inputs['labels'] = train_inputs.input_ids.detach().clone()
 
-with open('val_example.txt', 'r') as f:
+with open('./data/val_example.txt', 'r') as f:
   text_val = f.read().split('\n')
   text_val.pop(-1)
   f.close()
