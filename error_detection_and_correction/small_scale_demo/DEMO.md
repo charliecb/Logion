@@ -15,7 +15,7 @@ From [Dropbox](https://www.dropbox.com/scl/fo/367ca4oabb2iwkydswfyg/h?rlkey=edsd
 ## Step 3: Data and model specification
 For the purposes of our demonstration, we use as data a sample from the works of Michael Psellos, provided in `sample.txt`. After running this demo, the report generated will flag "η" within "η δε γαρ", which is a genuine instance of scribal error, previously undiscovered to the best of our knowledge [2]. On principle, however, one can edit `sample.txt` with any text of interest, provided it is within the token limit.
 
-As a model, we use the pretrained BERT model stored on https://huggingface.co/cabrooks/LOGION-50k_wordpiece, as described in [1].
+As a model, we use the pretrained BERT model stored on [HuggingFace](https://huggingface.co/cabrooks/LOGION-50k_wordpiece), as described in [1].
 
 ## Step 4: Report building
 Execute
