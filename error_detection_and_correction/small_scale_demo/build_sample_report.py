@@ -32,7 +32,6 @@ MEMORY CONSIDERATIONS (with default settings)
 # With completely default settings, this script should require 4GB RAM. If you increase the number of paragraphs considered, RAM requirements may increase.
 # 100 paragraphs per report should ever not require more than 64GB RAM. When possible, we highly recommend implementing numpy.memmap to reduce RAM required, or if you have access to a cluster, parallelization across e.g. 32GB RAM nodes.
 
-[1] Charlie Cowen-Breen, Creston Brooks, Johannes Haubold, Barbara Graziosi. 2023. Logion: Machine-Learning Based Detection and Correction of Textual Errors in Greek Philology. To appear in ACL 2023 Workshop (ALP).
 """
 
 from transformers import BertTokenizer, BertForMaskedLM
@@ -78,9 +77,9 @@ end_token = 3
 
 """ Filepaths """
 
-model_path = f'/scratch/gpfs/wcc4/Greek/models/combingpsellus/model{split_num}'
-tokenizer_path = '/scratch/gpfs/wcc4/Greek/tokenizers/wordpiece-50k-vocab.txt' # By default, 50k tokenizer
-levenshtein_path = f'/scratch/gpfs/wcc4/Greek/lev_maps/{lev}.npy'
+model_path = "cabrooks/LOGION-50k_wordpiece"
+tokenizer_path = "cabrooks/LOGION-50k_wordpiece" # By default, 50k tokenizer
+levenshtein_path = f"lev_maps/{lev}.npy" # Must be downloaded from https://www.dropbox.com/scl/fo/367ca4oabb2iwkydswfyg/h?rlkey=edsdb6b00bviltfo3a4bqefey&dl=0
 data_path = 'sample.txt'
 suggestion_separation_character = '*' # Used for separating suggestions for different words in output file. Spaces are not acceptable for this because some suggestions include insertions of new spaces into words.
 
@@ -194,7 +193,7 @@ for n in pars:
   # Iterate through all words in paragraph, computing confidences individually
   for word_ind in range(len(word_score)):
 
-    # Separate tokens into those before, during, and after the relevent word
+    # Separate tokens into those before, during, and after the relevent word
     pre_tokens = sum(tokens_by_words[:word_ind], [])
     transmitted_tokens = tokens_by_words[word_ind]
     post_tokens = sum(tokens_by_words[word_ind+1:], [])
